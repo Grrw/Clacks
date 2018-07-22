@@ -13,11 +13,11 @@ representation in the Going Portal movie.
 - [x] Take Clacks (formatted or not) and return text
 - [ ] Take .txt of one and return .txt of the other
 - [ ] Add option to make a Clacks GIF
-    - [ ] wow
+    - [ ] 1. Make Clacks output into images
+    - [ ] 2. Find a way to make images into a GIF
+- [ ] Create simple GUI (?)
 
 ## The Goal
-Unlike the To do list, which is for short-term goals, this outlines the entirety of the project.
-
 By the time the project is finished, the program will be able to take a txt file of ascii characters
 (most likely with a reasonable character limit) and return a txt file of Clacks, and vice versa.
 It will also be able to generate a GIF representation of a given txt file of Clacks or characters.
