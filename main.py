@@ -10,7 +10,12 @@ def main():
         oldMain()
 
     else:
-        print('TBD')
+        suf = filename[-4:]
+        if suf != '.txt':
+            print('Invalid filetype.')
+            return
+
+        print('Not yet implemented')
 
 def oldMain():
     selLoop = True
