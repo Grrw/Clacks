@@ -1,5 +1,6 @@
-# all the code for taking text and returning clacks
-
+"""
+Code that handles anything related to transcription of clacks
+"""
 def clack(txt):
     """
     Takes text and returns clacks

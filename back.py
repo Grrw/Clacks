@@ -1,5 +1,6 @@
-# all the code for taking clacks and returning text
-
+"""
+Code that handles anything relating to translation of clacks
+"""
 def back(clack):
     """
     Takes clacks and returns text
