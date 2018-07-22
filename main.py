@@ -1,7 +1,11 @@
-# main file
+"""
+Clacks main file.\n
+If you have imported this file, you have undoubtedly done something wrong.
+"""
 
-import sys, random
+import sys, random, time
 import clack, back
+
 
 ###
 def main():
@@ -12,23 +16,37 @@ def main():
         oldMain()
 
     elif filename == '-h' or filename == '--help' or filename == 'main.py':
-        print('\n The Grand Trunk Semaphore Company Presents: The Clacks\n')
-        print(' -h or --help   |    Display this screen')
-        print(' --no-file-mode | Use real-time clacking')
-        print('\n Usage:')
-        print(' python3 main.py [filename or argument]')
-        print(' Only compatible with .txt files')
+        help()
         
     elif filename == '--view-overhead':
         overhead()
 
     else:
         suf = filename[-4:]
-        if suf != '.txt':
+        if filename[0] == '-':
+            print('Invalid flag.')
+            time.sleep(1)
+            help()
+            return
+        elif suf != '.txt':
             print('Invalid filetype.')
             return
 
-        print('Not yet implemented')
+        print('Not yet implemented.')
+
+
+
+###
+def help():
+    print('The Grand Trunk Semaphore Company Proudly Presents:')
+    print('The Clacks System!'.center(45))
+    print('\n  -h, --help                 Display this screen' +
+        '\n  --no-file-mode             Use real-time clacking' +
+        '\n\npython3 main.py [filename or argument]' +
+        '\n\nTakes a file* of either clacks or text as input, translates, and creates' +
+        "\na new file of the translation with the name of 'result.txt'." +
+        '\n\n*Only compatible with .txt files')
+
 
 ###
 def oldMain():
@@ -57,6 +75,7 @@ def oldMain():
         elif selection == 'q':
             selLoop = False
 
+
 ### Clacks Overhead
 def overhead():
     locations = ['Genua', 'Lancre', 'Uberwald', 'Ankh-Morpork', 'Sto Lat']
@@ -81,7 +100,6 @@ def overhead():
     elif msg == 5:
         ranClack = random.randint(0,len(locations))
         print('Messages ' +toFrom[ranClack%2] +locations[ranClack]+ ' are no longer high priority.')
-
 
 
 # EOF
