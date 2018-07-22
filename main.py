@@ -15,7 +15,7 @@ def main():
 def oldMain():
     selLoop = True
     while selLoop:
-        selection = input("Press 'q' to Quit.\nEncode or Decode? (e/d)\n")
+        selection = input("Type 'q' to Quit.\nEncode or Decode? (e/d)\n")
 
         if selection == 'e':
             user = input('Input Message:\n')
