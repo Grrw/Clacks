@@ -4,13 +4,13 @@ def clack(txt):
     """
     Takes text and returns clacks
     """
-    ans = ""
+    clacks = ""
     for ii in range(len(txt)):
-        ans += make8(ord(txt[ii])) # gives str of binary
+        clacks += make8(ord(txt[ii])) # gives str of binary
 
-    ans = formatter(ans)
+    clacks = formatter(clacks)
 
-    return ans
+    return clacks
 
 
 def make8(int):
