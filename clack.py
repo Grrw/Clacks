@@ -6,20 +6,20 @@ def clack(txt):
     """
     clacks = ""
     for ii in range(len(txt)):
-        clacks += make8(ord(txt[ii])) # gives str of binary
+        clacks += makeBase2(ord(txt[ii])) # gives str of binary
 
     clacks = formatter(clacks)
 
     return clacks
 
 
-def make8(int):
+def makeBase2(givenInt):
     """
     Takes an integer and returns its 8-bit value as a string
     """
     # gets binary of int without '0b' prefix
     # zfill fills with 0 in front until length is 8
-    return str(bin(int)[2:].zfill(8))
+    return str(bin(givenInt)[2:].zfill(8))
 
 
 def formatter(txt):
@@ -49,10 +49,7 @@ def formatter(txt):
             clack += "\n"
 
         clack += txt[i]
-
-
-
-    
+        
     return clack
 
 
