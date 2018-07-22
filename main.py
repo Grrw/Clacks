@@ -26,12 +26,12 @@ while selLoop:
                 break
             user += tmpTxt
 
-        print(back.back(user))
+        print(back.deformatter(user))
+        # print(back.back(user))
         selLoop = False
 
     elif selection == 'q':
         selLoop = False
-
 
 
 
