@@ -10,8 +10,10 @@ representation in the Going Portal movie.
 
 ### To do
 - [X] Take text and return Clacks
-- [ ] Take Clacks (formatted or not) and return text
+- [x] Take Clacks (formatted or not) and return text
 - [ ] Take .txt of one and return .txt of the other
+- [ ] Add option to make a Clacks GIF
+    - [ ] wow
 
 ## The Goal
 Unlike the To do list, which is for short-term goals, this outlines the entirety of the project.
