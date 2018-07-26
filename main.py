@@ -35,7 +35,6 @@ def main():
         print('Not yet implemented.')
 
 
-
 ###
 def help():
     print('The Grand Trunk Semaphore Company Proudly Presents:')
