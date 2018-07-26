@@ -6,7 +6,7 @@ I loved the Semaphore Tower-like Clacks system in the book, and wanted to recrea
 After seeing the [Clacks GIF maker](http://www.gnuterrypratchett.com/genclacks.php)
 on [GNUTerryPratchett](http://www.gnuterrypratchett.com), I wanted to recreated that same idea,
 but instead of the 2 by 3 Clacks used in the Clacks board game, with a 4 by 4 like the
-representation in the Going Portal movie.
+representation in the Going Postal movie.
 
 ### To do
 - [X] Take text and return Clacks
