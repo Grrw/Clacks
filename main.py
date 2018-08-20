@@ -2,8 +2,8 @@
 Clacks main file.\n
 If you have imported this file, you have undoubtedly done something wrong.
 """
-
-import sys, random, time
+from random import randint
+import sys, time
 import clack, back
 
 
@@ -22,17 +22,29 @@ def main():
         overhead()
 
     else:
-        suf = filename[-4:]
+        suf = filename[-4:] # the last flag
         if filename[0] == '-':
             print('Invalid flag.')
-            time.sleep(1)
-            help()
+            # time.sleep(1)
+            # help()
             return
         elif suf != '.txt':
             print('Invalid filetype.')
             return
 
-        print('Not yet implemented.')
+        # if it's a .txt, go here:
+        with open(filename) as givenFile:
+            translate = givenFile.read()
+            print(type(translate))
+            if translate.find('●') !=-1 or translate.find('○') !=-1: # if a clack
+                decoded = open("result.txt", "w+")
+                # why are there two invalid charcters that need to be removed when decoding?
+                decoded.write(back.back(translate)[:-2])
+                decoded.close()
+            else: # if not a clack
+                encoded = open("result.txt", "w+")
+                encoded.write(clack.clack(translate))
+                encoded.close
 
 
 ###
@@ -40,7 +52,7 @@ def help():
     print('The Grand Trunk Semaphore Company Proudly Presents:')
     print('The Clacks System!'.center(45))
     print('\n  -h, --help                 Display this screen' +
-        '\n  --no-file-mode             Use real-time clacking' +
+        '\n  -n, --no-file              Use real-time clacking' +
         '\n\npython3 main.py [filename or argument]' +
         '\n\nTakes a file* of either clacks or text as input, translates, and creates' +
         "\na new file of the translation with the name of 'result.txt'." +
@@ -49,7 +61,7 @@ def help():
 
 ###
 def oldMain():
-    selLoop = True
+    selLoop = True # selection loop
     while selLoop:
         selection = input("Type 'q' to Quit.\nEncode or Decode? (e/d)\n")
 
@@ -79,7 +91,7 @@ def oldMain():
 def overhead():
     locations = ['Genua', 'Lancre', 'Uberwald', 'Ankh-Morpork', 'Sto Lat']
     toFrom = ['to ', 'from ']
-    msg = random.randint(0,5)
+    msg = randint(0,5)
     print('OVERHEAD MESSAGE:')
 
     if msg == 0:
@@ -87,17 +99,17 @@ def overhead():
     elif msg == 1:
         print('GNU Terry Pratchett')
     elif msg == 2:
-        ranClack = random.randint(24,78)
+        ranClack = randint(24,78)
         print('Tower ' + str(ranClack) + ' is temporarily down for repairs.')
-        print('Reroute clacks messages through Tower ' +str(ranClack-random.randint(-15,15))+ '.')
+        print('Reroute clacks messages through Tower ' +str(ranClack-randint(-15,15))+ '.')
     elif msg == 3:
-        ranClack = random.randint(1,78)
+        ranClack = randint(1,78)
         print('Tower ' + str(ranClack) + ' has resumed service.')
     elif msg == 4:
-        ranClack = random.randint(0,len(locations)-1)
+        ranClack = randint(0,len(locations)-1)
         print('Messages ' +toFrom[ranClack%2] +locations[ranClack]+ ' are high priority until further notice.')
     elif msg == 5:
-        ranClack = random.randint(0,len(locations))
+        ranClack = randint(0,len(locations))
         print('Messages ' +toFrom[ranClack%2] +locations[ranClack]+ ' are no longer high priority.')
 
 
