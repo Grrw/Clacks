@@ -27,9 +27,9 @@ def formatter(txt):
     """
     Takes text of 8-bit ascii and formats to clacks formatting
     """
-    # append null char if chars are not even
+    # append a space if chars are not even
     while (len(txt) /8) %2 != 0:
-        txt += "00000000"
+        txt += "00100000"
 
     txt = visualChange(txt)
 
