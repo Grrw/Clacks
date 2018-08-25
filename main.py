@@ -12,7 +12,7 @@ def main():
     filename = sys.argv[-1] # just take the last argument
 
     # this is not the right way to do flags
-    if filename == '--no-file-mode':
+    if filename == '--no-file' or filename == "-n":
         oldMain()
 
     elif filename == '-h' or filename == '--help' or filename == 'main.py':
@@ -38,8 +38,8 @@ def main():
             print(type(translate))
             if translate.find('●') !=-1 or translate.find('○') !=-1: # if a clack
                 decoded = open("result.txt", "w+")
-                # why are there two invalid charcters that need to be removed when decoding?
-                decoded.write(back.back(translate)[:-2])
+                # why is there an invalid charcter that need to be removed when decoding?
+                decoded.write(back.back(translate))#[:-1])
                 decoded.close()
             else: # if not a clack
                 encoded = open("result.txt", "w+")
