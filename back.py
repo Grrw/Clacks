@@ -14,6 +14,10 @@ def back(clack):
     for ii in range(len(ordList)):
         charList += chr(int(ordList[ii], 2))
 
+    # if there is a space at the end, remove it
+    if charList[-1] == ' ':
+        charList = charList[:-1]
+
     return charList
 
 
