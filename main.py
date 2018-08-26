@@ -13,7 +13,7 @@ def main():
 
     # this is not the right way to do flags
     if filename == '--no-file' or filename == "-n":
-        oldMain()
+        noFile()
 
     elif filename == '-h' or filename == '--help' or filename == 'main.py':
         help()
@@ -60,30 +60,29 @@ def help():
 
 
 ###
-def oldMain():
+def noFile():
     selLoop = True # selection loop
     while selLoop:
-        selection = input("Type 'q' to Quit.\nEncode or Decode? (e/d)\n")
+        print("Type 'done' on a new line when finished typing message\n")
 
-        if selection == 'e':
-            user = input('Input Message:\n')
-            print('\nResult:' +clack.clack(user))
+        translate = ''
+        while True: 
+            # continue adding text until user types
+            # 'done' on a new line
+            tmpTxt = input()
+            if tmpTxt == 'done':
+                break
+            translate += tmpTxt
+
+        if translate.find('●') !=-1 or translate.find('○') !=-1:
+            print('\nResults:\n' + '"' +back.back(translate)+ '"')
             selLoop = False
 
-        elif selection == 'd':
-            user = ''
-            print("Input Message:\n(type 'done' on a new line to stop)")
-            
-            while True:
-                tmpTxt = input()
-                if tmpTxt == 'done':
-                    break
-                user += tmpTxt
-
-            print('\nResult:\n' + '"' +back.back(user)+ '"')
+        elif translate == '':
             selLoop = False
 
-        elif selection == 'q':
+        else:
+            print('\nResult:' +clack.clack(translate))
             selLoop = False
 
 
