@@ -1,15 +1,20 @@
 """
 Code that handles anything related to transcription of clacks
 """
-def clack(txt):
+def clack(txt, arSwitch):
     """
-    Takes text and returns clacks
+    Takes text and a boolean.\n
+    If the boolean is False then it returns clacks as text\n
+    If the boolean is True then it returns clacks as an array
     """
     clacks = ""
     for ii in range(len(txt)):
         clacks += makeBase2(ord(txt[ii])) # gives str of binary
 
-    clacks = formatter(clacks)
+    if (arSwitch):
+        pass
+    else:
+        clacks = formatter(clacks)
 
     return clacks
 
@@ -28,6 +33,7 @@ def formatter(txt):
     Takes text of 8-bit ascii and formats to clacks formatting
     """
     # append a space if chars are not even
+    # space is removed upon translation back
     while (len(txt) /8) %2 != 0:
         txt += "00100000"
 
@@ -37,7 +43,7 @@ def formatter(txt):
     clack = ""
     for i in range(len(txt)):
         
-        # skips the first loop
+        # adds spaces between each dot
         if i != 0:
             clack += " "
 
