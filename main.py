@@ -21,16 +21,15 @@ def main():
     elif filename == '--view-overhead':
         overhead()
 
+    # any other flag
     else:
         suf = filename[-4:] # the last flag
         if filename[0] == '-':
             print('Invalid flag.')
-            # time.sleep(1)
-            # help()
-            return
         elif suf != '.txt':
             print('Invalid filetype.')
-            return
+        print('Run with -h for help.')
+        return
 
         # if it's a .txt, go here:
         with open(filename) as givenFile:
@@ -43,20 +42,25 @@ def main():
                 decoded.close()
             else: # if not a clack
                 encoded = open("result.txt", "w+")
-                encoded.write(clack.clack(translate))
+                encoded.write(clack.clack(translate, False))
                 encoded.close
 
 
 ###
 def help():
+    val = randint(1,5)
+    overhead = ' '
+    if val % 2 == 1:
+        overhead = "\n  --view-clacks-overhead     View Overhead Messages"
     print('The Grand Trunk Semaphore Company Proudly Presents:')
-    print('The Clacks System!'.center(45))
-    print('\n  -h, --help                 Display this screen' +
+    print('The CLI Clacks System!'.center(42))
+    print('\n  -h, --help                 Display help screen' +
         '\n  -n, --no-file              Use real-time clacking' +
+        '\n  -g                         Make into a GIF (NYI)' +
+        overhead +
         '\n\npython3 main.py [filename or argument]' +
-        '\n\nTakes a file* of either clacks or text as input, translates, and creates' +
-        "\na new file of the translation with the name of 'result.txt'." +
-        '\n\n*Only compatible with .txt files')
+        '\n\nTakes a txt file of either clacks or text as input, translates, and creates' +
+        "\na new file of the translation with the name of 'result.txt'.")
 
 
 ###
@@ -74,6 +78,7 @@ def noFile():
                 break
             translate += tmpTxt
 
+
         if translate.find('●') !=-1 or translate.find('○') !=-1:
             print('\nResults:\n' + '"' +back.back(translate)+ '"')
             selLoop = False
@@ -82,7 +87,7 @@ def noFile():
             selLoop = False
 
         else:
-            print('\nResult:' +clack.clack(translate))
+            print('\nResult:' +clack.clack(translate, False))
             selLoop = False
 
 
