@@ -23,13 +23,13 @@ def main():
 
     # any other flag
     else:
-        suf = filename[-4:] # the last flag
+        suffix = filename[-4:] # the last flag
         if filename[0] == '-':
-            print('Invalid flag.')
-        elif suf != '.txt':
-            print('Invalid filetype.')
-        print('Run with -h for help.')
-        return
+            print('Invalid flag.\nRun with -h for help.')
+            return
+        elif suffix != '.txt':
+            print('Invalid filetype.\nRun with -h for help.')
+            return
 
         # if it's a .txt, go here:
         with open(filename) as givenFile:
