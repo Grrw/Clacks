@@ -11,7 +11,7 @@ representation in the Going Postal movie.
 ### To do
 - [X] Take text and return Clacks
 - [x] Take Clacks (formatted or not) and return text
-- [ ] Take .txt of one and return .txt of the other
+- [X] Take .txt of one and return .txt of the other
 - [ ] Add option to make a Clacks GIF
     - [ ] 1. Make Clacks output into images
     - [ ] 2. Find a way to make images into a GIF
